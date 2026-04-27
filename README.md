@@ -101,6 +101,7 @@ mvn liquibase:update                                  # apply all pending change
 mvn liquibase:status                                  # preview pending changesets (read-only)
 mvn liquibase:updateSQL                               # preview SQL without executing
 mvn liquibase:rollback -Dliquibase.rollbackCount=1    # roll back the last changeset
+mvn liquibase:changelogSync                           # populate the DATABASECHANGELOG table for all existing changesets
 ```
 
 After each `update`, a Secure HTML report is uploaded to your S3 bucket at the path
