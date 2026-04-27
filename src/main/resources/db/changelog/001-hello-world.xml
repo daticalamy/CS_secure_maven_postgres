@@ -28,6 +28,11 @@
         <insert tableName="greeting">
             <column name="message" value="Hello, World! — Liquibase Secure 5.1.1"/>
         </insert>
+        <rollback>
+            <delete tableName="greeting">
+                <where>message = 'Hello, World! — Liquibase Secure 5.1.1'</where>
+            </delete>
+        </rollback>
     </changeSet>
  
 </databaseChangeLog>
