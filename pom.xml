@@ -59,7 +59,7 @@
 		  <systemProperties>
 			<property>
 			  <name>liquibase.reports.path</name>
-			  <value>reports</value>
+			  <value>s3://asmith-s3-extension-demo/liquibase-maven-reports</value>
 			</property>
 			<property>
 			  <name>liquibase.reports.enabled</name>
