@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+ 
+    <!-- ChangeSet 1: Create the greeting table -->
+    <changeSet id="001" author="hello-world">
+        <comment>Create the greeting table</comment>
+        <createTable tableName="greeting">
+            <column name="id"      type="INT"          autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="message" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+ 
+    <!-- ChangeSet 2: Seed the "Hello, World!" row -->
+    <changeSet id="002" author="hello-world">
+        <comment>Insert Hello World greeting</comment>
+        <insert tableName="greeting">
+            <column name="message" value="Hello, World! — Liquibase Secure 5.1.1"/>
+        </insert>
+    </changeSet>
+ 
+</databaseChangeLog>
