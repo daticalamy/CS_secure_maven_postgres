@@ -54,14 +54,19 @@
         <groupId>com.liquibase</groupId>
         <artifactId>liquibase-maven-plugin</artifactId>
         <version>${liquibase.version}</version>
-        <configuration>
-          <!--
-            All sensitive values (url, username, password, licenseKey) are
-            resolved at runtime from AWS Secrets Manager via liquibase.properties.
-            No credentials are stored in this POM file.
-          -->
-          <propertyFile>liquibase.properties</propertyFile>
-        </configuration>
+		<configuration>
+		  <propertyFile>liquibase.properties</propertyFile>
+		  <systemProperties>
+			<property>
+			  <name>liquibase.reports.path</name>
+			  <value>reports</value>
+			</property>
+			<property>
+			  <name>liquibase.reports.enabled</name>
+			  <value>true</value>
+			</property>
+		  </systemProperties>
+		</configuration>
         <dependencies>
           <!-- PostgreSQL driver must also be on the plugin classpath -->
           <dependency>
